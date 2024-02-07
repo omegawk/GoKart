@@ -13,6 +13,7 @@ public final class constants {
         public static final int FWD_BUTTON_PORT = 1;
         public static final int REV_BUTTON_PORT = 2;
         public static final int DRIVE_AXIS = 1;
+        public static final int TURN_AXIS = 2;
       }
     
       public static class Speeds {
