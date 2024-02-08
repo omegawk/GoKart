@@ -14,6 +14,8 @@ public class spinbackleftcommand extends Command{
     public spinbackleftcommand(motorsubsystem subsystem, Supplier<Double> speedFunction){
         m_subsystem = new motorsubsystem();
        this.speedFunction = speedFunction;
+
+       addRequirements(subsystem);
     }
     @Override
     public void initialize() {}

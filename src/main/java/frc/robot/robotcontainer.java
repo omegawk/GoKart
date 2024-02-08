@@ -12,18 +12,17 @@ public class robotcontainer {
     private JoystickButton m_forwbutton;
     private JoystickButton m_revbutton;
 
+
     public robotcontainer() {
         m_motorsubsystem = new motorsubsystem();
         m_controller = new Joystick(constants.OperatorConstants.DRIVER_CONTROLLER_PORT);
         m_forwbutton = new JoystickButton(m_controller, constants.OperatorConstants.FWD_BUTTON_PORT);
         m_revbutton = new JoystickButton(m_controller, constants.OperatorConstants.REV_BUTTON_PORT);
 
-        m_motorsubsystem.setDefaultCommand(
-            new spinbackleftcommand(m_motorsubsystem, m_controller.getRawAxis(constants.OperatorConstants.DRIVE_AXIS)));
-
+        m_motorsubsystem.setDefaultCommand(new spinbackleftcommand(m_motorsubsystem, ()-> m_controller.getRawAxis(constants.OperatorConstants.DRIVE_AXIS)));
+        
         configureBindings();
-        m_forwbutton.toggleOnTrue(new spinbackleftcommand(m_motorsubsystem, constants.Speeds.FWD_DRIVE_SPEED));
-        m_revbutton.toggleOnTrue(new spinbackleftcommand(m_motorsubsystem, constants.Speeds.REV_DRIVE_SPEED));
+    
   }
   private void configureBindings() {
 
