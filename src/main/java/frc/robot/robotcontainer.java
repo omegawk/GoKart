@@ -6,9 +6,10 @@ import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import frc.robot.commands.spinbackleftcommand;
 import frc.robot.commands.spinbackrightcommand;
 import frc.robot.commands.spinfrontleftcommand;
-// import frc.robot.commands.spinbackrightcommand;
-// import frc.robot.commands.spinfrontrightcommand;
-// import frc.robot.commands.spinfrontleftcommand;
+import frc.robot.commands.spinfrontrightcommand;
+import frc.robot.commands.spinbackrightcommand;
+import frc.robot.commands.spinfrontrightcommand;
+import frc.robot.commands.spinfrontleftcommand;
 import frc.robot.subsystems.motorsubsystem;
 
 public class robotcontainer {
@@ -35,7 +36,8 @@ public class robotcontainer {
         configureBindings();
         m_forwbutton.toggleOnTrue(new spinfrontleftcommand(m_motorsubsystem, constants.Speeds.FWD_DRIVE_SPEED));
         m_revbutton.toggleOnTrue(new spinfrontleftcommand(m_motorsubsystem, constants.Speeds.REV_DRIVE_SPEED));
-
+        m_forwturnbutton.toggleOnTrue(new spinfrontrightcommand(m_motorsubsystem, constants.Speeds.FWD_DRIVE_SPEED));
+        m_revturnbutton.toggleOnTrue(new spinfrontrightcommand(m_motorsubsystem, constants.Speeds.REV_DRIVE_SPEED));
     }
         
   private void configureBindings() {
