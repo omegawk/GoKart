@@ -46,10 +46,17 @@ public class motorsubsystem extends SubsystemBase {
     frontleft.set(constants.Speeds.STOP_SPEED);
   }
 
+  public void stopbackleftMotor(){
+    backleft.set(constants.Speeds.STOP_SPEED);
+  }
+
   public void stopfrontrightMotor() {
     frontright.set(constants.Speeds.STOP_SPEED);
   }
 
+  public void stopbackrightMotor(){
+    backright.set(constants.Speeds.STOP_SPEED);
+  }
   @Override
   public void periodic() {
     SmartDashboard.putNumber("front left Motor Position: ", frontleftEncoder.getPosition());

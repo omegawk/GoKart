@@ -33,7 +33,7 @@ public class spinbackleftcommand extends Command{
     
     @Override
     public void end(boolean interrupted) {
-    m_subsystem.stopfrontleftMotor();
+    m_subsystem.stopbackleftMotor();
     }
   
    
