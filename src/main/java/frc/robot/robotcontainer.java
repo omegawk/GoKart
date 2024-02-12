@@ -7,9 +7,6 @@ import frc.robot.commands.spinbackleftcommand;
 import frc.robot.commands.spinbackrightcommand;
 import frc.robot.commands.spinfrontleftcommand;
 import frc.robot.commands.spinfrontrightcommand;
-import frc.robot.commands.spinbackrightcommand;
-import frc.robot.commands.spinfrontrightcommand;
-import frc.robot.commands.spinfrontleftcommand;
 import frc.robot.subsystems.motorsubsystem;
 
 public class robotcontainer {
