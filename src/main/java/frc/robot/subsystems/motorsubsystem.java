@@ -19,11 +19,11 @@ public class motorsubsystem extends SubsystemBase {
     
 
   public motorsubsystem() {
-  frontleft = new CANSparkMax(constants.motorconstants.frontleftid, MotorType.kBrushless);
-   frontright = new CANSparkMax(constants.motorconstants.frontrightid, MotorType.kBrushless);
+    frontleft = new CANSparkMax(constants.motorconstants.frontleftid, MotorType.kBrushless);
+    frontright = new CANSparkMax(constants.motorconstants.frontrightid, MotorType.kBrushless);
     backleft = new TalonFX(constants.motorconstants.backleftidfalcon);
     backright = new TalonFX(constants.motorconstants.backlrightidfalcon);
-   frontleftEncoder = frontleft.getEncoder();
+    frontleftEncoder = frontleft.getEncoder();
     frontrightEncoder = frontright.getEncoder();
   }
 
@@ -60,8 +60,8 @@ public class motorsubsystem extends SubsystemBase {
   }
   @Override
   public void periodic() {
-  // SmartDashboard.putNumber("front left Motor Position: ", frontleftEncoder.getPosition());
-  //SmartDashboard.putNumber("front right Motor Position: ", frontrightEncoder.getPosition());
+  SmartDashboard.putNumber("front left Motor Position: ", frontleftEncoder.getPosition());
+  SmartDashboard.putNumber("front right Motor Position: ", frontrightEncoder.getPosition());
   }
 }
 

@@ -12,7 +12,7 @@ public class spinbackleftcommand extends Command{
     private final Supplier <Double> speedFunction; 
     
     public spinbackleftcommand(motorsubsystem subsystem, Supplier<Double> speedFunction){
-        m_subsystem = new motorsubsystem();
+        m_subsystem = subsystem;
        this.speedFunction = speedFunction;
 
        addRequirements(subsystem);

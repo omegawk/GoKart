@@ -1,40 +1,44 @@
 package frc.robot.commands;
 
-import frc.robot.subsystems.motorsubsystem;
+import java.util.function.Supplier;
+
 import edu.wpi.first.wpilibj2.command.Command;
+import frc.robot.subsystems.motorsubsystem;
 
 
-public class spinfrontleftcommand extends Command {
-  @SuppressWarnings({"PMD.UnusedPrivateField", "PMD.SingularField"})
-  private final motorsubsystem m_subsystem;
-  private double speed;
+public class spinfrontleftcommand extends Command{
+    @SuppressWarnings({"PMD.UnusedPrivateField", "PMD.SingularField"})
+    private final motorsubsystem m_subsystem;
+    private final Supplier <Double> speedFunction; 
+    
+    public spinfrontleftcommand(motorsubsystem subsystem, Supplier<Double> speedFunction){
+        m_subsystem = subsystem;
+        this.speedFunction = speedFunction;
 
- 
-  public spinfrontleftcommand(motorsubsystem subsystem, double speed) {
-    m_subsystem = subsystem;
-    this.speed = speed;
+       addRequirements(subsystem);
+    }
+    @Override
+    public void initialize() {}
+  
+    
+    @Override
+    public void execute() {
+      double currentSpeed = speedFunction.get()*.25;
+      if (currentSpeed > -.1 && currentSpeed < .1) {
+        currentSpeed = 0;
+      }
+      m_subsystem.spinbackleftMotor(currentSpeed);
+    }
+  
+    
+    @Override
+    public void end(boolean interrupted) {
+    m_subsystem.stopbackleftMotor();
+    }
+  
    
-    addRequirements(subsystem);
-  }
-
-  @Override
-  public void initialize() {}
-
-  
-  @Override
-  public void execute() {
-    m_subsystem.spinfrontleftMotor(speed);
-  }
-
-  
-  @Override
-  public void end(boolean interrupted) {
-    m_subsystem.stopfrontleftMotor();
-  }
-
- 
-  @Override
-  public boolean isFinished() {
-    return false;
-  }
+    @Override
+    public boolean isFinished() {
+      return false;
+    }
 }
